@@ -1,0 +1,27 @@
+class Articulo:
+    def __init__(self, codigo, nombre, cantidad, precio):
+        self.codigo = codigo
+        self.nombre = nombre
+        self.cantidad = cantidad
+        self.precio = precio
+
+class Inventario:
+    def __init__(self):
+        self.lista_articulos = []
+
+    def agregar_articulo(self, articulo):
+        self.lista_articulos.append(articulo)
+
+    def eliminar_articulo(self, codigo):
+        self.lista_articulos = [a for a in self.lista_articulos if a.codigo != codigo]
+
+    def listar_articulos(self):
+        print("Inventario Actual:")
+        for a in self.lista_articulos:
+            print(f"Cód: {a.codigo} | {a.nombre} | Stock: {a.cantidad} | Precio: {a.precio}")
+
+# Ejemplo de uso
+art1 = Articulo("A01", "Teclado", 50, 45.0)
+mi_inventario = Inventario()
+mi_inventario.agregar_articulo(art1)
+mi_inventario.listar_articulos()

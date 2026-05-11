@@ -1,0 +1,26 @@
+class Persona:
+    def __init__(self, nombre, email):
+        self.nombre = nombre
+        self.email = email
+
+class Evento:
+    def __init__(self, nombre, fecha, ubicacion):
+        self.nombre = nombre
+        self.fecha = fecha
+        self.ubicacion = ubicacion
+        self.participantes = []
+
+    def agregar_participante(self, persona):
+        self.participantes.append(persona)
+
+    def mostrar_asistentes(self):
+        print(f"Lista de asistentes para {self.nombre}:")
+        for p in self.participantes:
+            print(f"- {p.nombre} ({p.email})")
+
+# Ejemplo de uso
+pers1 = Persona("Juan Pérez", "juan@mail.com")
+evento1 = Evento("Conferencia Tech", "2026-05-20", "Auditorio Central")
+
+evento1.agregar_participante(pers1)
+evento1.mostrar_asistentes()

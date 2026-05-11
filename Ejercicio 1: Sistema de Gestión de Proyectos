@@ -1,0 +1,29 @@
+class Empleado:
+    def __init__(self, nombre, id):
+        self.nombre = nombre
+        self.id = id
+        self.proyectos = []
+
+class Proyecto:
+    def __init__(self, nombre, descripcion, fecha_inicio, fecha_fin):
+        self.nombre = nombre
+        self.descripcion = descripcion
+        self.fecha_inicio = fecha_inicio
+        self.fecha_fin = fecha_fin
+        self.empleados_asignados = []
+
+    def agregar_empleado(self, empleado):
+        self.empleados_asignados.append(empleado)
+        empleado.proyectos.append(self.nombre)
+
+    def mostrar_empleados(self):
+        print(f"Empleados en el proyecto '{self.nombre}':")
+        for emp in self.empleados_asignados:
+            print(f"- {emp.nombre} (ID: {emp.id})")
+
+# Ejemplo de uso
+emp1 = Empleado("Ana García", "E001")
+proy1 = Proyecto("App Móvil", "Desarrollo de App", "2026-01-01", "2026-06-01")
+
+proy1.agregar_empleado(emp1)
+proy1.mostrar_empleados()
